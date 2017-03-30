@@ -19,7 +19,7 @@
 	<div class="container">
 		<div class="input-container">
 			<form action="/add" method="post" class="todo-form">
-				<input type="text" class="todo-input" required name="text" placeholder="Add something.." autofocus>
+				<input type="text" class="todo-input" required name="text" placeholder="Add something.." autofocus pattern=".{4,}" title="Four or more characters">
 				<button type="submit">ADD</button>
 			</form>
 		</div>

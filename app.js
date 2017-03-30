@@ -52,7 +52,7 @@ app.get('/', function(req, res) {
 })
 
 app.post('/add', function(req, res) {
-    if (req.body.text.length < 1) {
+    if (req.body.text.length < 4) {
         req.flash('errmessage', 'Task text can\'t be empty!')
     } else {
         req.flash('message', 'Task added!')
