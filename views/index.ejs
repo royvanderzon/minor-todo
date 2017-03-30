@@ -16,6 +16,8 @@
 
 	<h1>MY SIMPLE TODO</h1>
 
+	<p>A simple app to make complex tasks simple!</p>
+
 	<div class="container">
 		<div class="input-container">
 			<form action="/add" method="post" class="todo-form">
@@ -34,7 +36,7 @@
 						<strong><%= el.ID %> </strong><%= el.text %>
 					</p>
 					<div class="order-control" data-id="<%= el.ID %>">
-						<em><% if(i > 0){ %><a href="/up/<%= i %>">UP</a><% } %><% if(i > 0 && i < tasks.length - 1){ %> | <% } %><% if(i < tasks.length - 1){ %><a href="/down/<%= i %>">DOWN</a><% } %></em>
+						<em><% if(i > 0){ %><a href="/up/<%= i %>" alt="task up" title="task up" tabindex="<%= i %>">UP</a><% } %><% if(i > 0 && i < tasks.length - 1){ %> | <% } %><% if(i < tasks.length - 1){ %><a  tabindex="<%= (i+1) %>" href="/down/<%= i %>" alt="task down" title="task down">DOWN</a><% } %></em>
 						<!-- <em><a href="/up/<%= i %>">UP</a><span class="link-divider"> | </span><a href="/down/<%= i %>">DOWN</a></em> -->
 					</div>
 				</li>

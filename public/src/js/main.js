@@ -20,6 +20,19 @@ if (typeof document.querySelectorAll !== 'undefined') {
 
 // })
 
+$(document).ready(function(){
+    $('form').on('submit',function(e){
+        e.preventDefault()
+        if($('.todo-input').element.value.length < 4){
+            alert('Text must be longer than 4 characters!');
+        }else{
+            $('form').element.submit();
+        }
+
+    })
+})
+
+
 function drag_drop() {
     var dragSrcEl = null;
 
