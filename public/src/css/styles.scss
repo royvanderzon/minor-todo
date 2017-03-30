@@ -25,9 +25,14 @@ body {
 
 h1 {
     text-align: center;
+    margin-top: 32px;
     margin-top: 2em;
-    /*margin-bottom: 2em;*/
     color: #333;
+}
+
+ul{
+    list-style-type: none;
+    padding-left: 0px;
 }
 
 .container {
@@ -35,10 +40,8 @@ h1 {
     width: 600px;
     margin: 0 auto;
     display: block;
-    /*background-color: red;*/
+    padding: 20px;
     padding: 4em;
-    /*background-color: #fff;*/
-    /*box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.15);*/
 }
 
 .message {
@@ -59,11 +62,13 @@ h1 {
 }
 
 .input-container {
+    padding: 16px;
     padding: 1em;
 }
 
 .todo-input {
     width: 100%;
+    padding: 6px 12px;
     padding: .5em 1em;
     font-size: 22px;
     color: #333;
@@ -87,6 +92,7 @@ h1 {
     color: #666;
     font-size: 18px;
     font-weight: bold;
+    margin-top: 16px;
     margin-top: 1.5em;
     display: block;
 }
@@ -118,10 +124,23 @@ form>button:active {
     padding: 0;
 }
 
+.column {
+    margin: 10px;
+    background-color: #fff;
+    margin-right: 5px;
+}
+
 .todo-inner > ul > li {
     display: block;
     background-color: #fff;
     box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.15);
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding: 16px;
+    margin: 16px;
+    margin-top: 10px;
     padding: 1em;
     margin: 1em;
 }
@@ -139,13 +158,17 @@ body.drag [draggable] {
     -webkit-user-drag: element;
 }
 
-.column {
-    background-color: #fff;
-    margin-right: 5px;
+
+.order-control{
+    display: block;
 }
 
 body.drag .column {
     cursor: move;
+}
+
+body.drag .order-control{
+    display: none;
 }
 
 .column.over {

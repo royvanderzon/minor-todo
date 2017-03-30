@@ -34,8 +34,8 @@
 						<strong><%= el.ID %> </strong><%= el.text %>
 					</p>
 					<div class="order-control" data-id="<%= el.ID %>">
-						<!-- <em><% if(i > 0){ %><a href="/up/<%= i %>">UP</a><% } %><% if(i > 0 && i < tasks.length - 1){ %> | <% } %><% if(i < tasks.length - 1){ %><a href="/down/<%= i %>">DOWN</a><% } %></em> -->
-						<em><a href="/up/<%= i %>">UP</a><span class="link-divider"> | </span><a href="/down/<%= i %>">DOWN</a></em>
+						<em><% if(i > 0){ %><a href="/up/<%= i %>">UP</a><% } %><% if(i > 0 && i < tasks.length - 1){ %> | <% } %><% if(i < tasks.length - 1){ %><a href="/down/<%= i %>">DOWN</a><% } %></em>
+						<!-- <em><a href="/up/<%= i %>">UP</a><span class="link-divider"> | </span><a href="/down/<%= i %>">DOWN</a></em> -->
 					</div>
 				</li>
 				<% }) %>
