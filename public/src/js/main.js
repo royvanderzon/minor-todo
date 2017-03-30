@@ -64,7 +64,7 @@ function drag_drop() {
     });
 
     function handleDrop(e) {
-        // this/e.target is current target element.
+        // this e.target is current target element.
 
         if (e.stopPropagation) {
             e.stopPropagation(); // Stops some browsers from redirecting.
