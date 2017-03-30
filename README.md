@@ -92,8 +92,8 @@ HTML5 validation with `required`. This HTML attribute is almost compatible with 
 
 If there is something wrong, there is an flash message displayed. This works for one page view after the initial command.
 
-###  Unsupported JS
-If there are browsers that aren't compatible with the JS funcionality will decrese and the fallbacks will take over.
+###  Drag and Drop
+If there are browsers that aren't compatible with the JS funcionality will decrese and the fallbacks will take over. The `drag and drop` functionality is in the most desktop browsers supported (44.2%) [CANIUSE](http://caniuse.com/#search=drag%20and%20drop). If the funcionality doesn't work, the tasks will me movable trough up and down links!
 
 ### Form validation
 The form is validated in different stadia:

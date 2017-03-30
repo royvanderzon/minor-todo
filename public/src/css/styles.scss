@@ -18,7 +18,7 @@ body {
     background-color: #ccc;
 }
 
-body > p{
+body > p {
     text-align: center;
 }
 
@@ -34,7 +34,7 @@ h1 {
     color: #333;
 }
 
-ul{
+ul {
     list-style-type: none;
     padding-left: 0px;
 }
@@ -162,8 +162,7 @@ body.drag [draggable] {
     -webkit-user-drag: element;
 }
 
-
-.order-control{
+.order-control {
     display: block;
 }
 
@@ -171,35 +170,34 @@ body.drag .column {
     cursor: move;
 }
 
-body.drag .order-control{
-    /*display: none;*/
-    position: fixed;
-    left: -999999px;
-    top: -9999999px;
-}
-
 .column.over {
     background-color: #ddd;
 }
 
-.todo-inner li.column:first-child a:first-child {
-    /*display: none;*/
-    position: fixed;
-    left: -999999px;
-    top: -9999999px;
-}
-
-.todo-inner li.column:last-child a:last-child {
-    /*display: none;*/
-    position: fixed;
-    left: -999999px;
-    top: -9999999px;
-}
-
-.todo-inner li.column:last-child .link-divider,
-.todo-inner li.column:first-child .link-divider {
-    /*display: none;*/
-    position: fixed;
-    left: -999999px;
-    top: -9999999px;
+@media screen and (min-width: 1000px) {
+    body.drag .order-control {
+        /*display: none;*/
+        position: fixed;
+        left: -999999px;
+        top: -9999999px;
+    }
+    .todo-inner li.column:first-child a:first-child {
+        /*display: none;*/
+        position: fixed;
+        left: -999999px;
+        top: -9999999px;
+    }
+    .todo-inner li.column:last-child a:last-child {
+        /*display: none;*/
+        position: fixed;
+        left: -999999px;
+        top: -9999999px;
+    }
+    .todo-inner li.column:last-child .link-divider,
+    .todo-inner li.column:first-child .link-divider {
+        /*display: none;*/
+        position: fixed;
+        left: -999999px;
+        top: -9999999px;
+    }
 }
