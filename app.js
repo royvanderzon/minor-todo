@@ -52,66 +52,70 @@ app.get('/', function(req, res) {
 })
 
 app.post('/add', function(req, res) {
-    req.flash('message', 'Task added!')
-    console.log(req.body)
-    ID_counter++;
-    tasks.unshift({
-        ID: ID_counter,
-        text: req.body.text
-    })
+    if (req.body.text.length < 1) {
+        req.flash('errmessage', 'Task text can\'t be empty!')
+    } else {
+        req.flash('message', 'Task added!')
+        console.log(req.body)
+        ID_counter++;
+        tasks.unshift({
+            ID: ID_counter,
+            text: req.body.text
+        })
+    }
     res.redirect('/')
 })
 
 app.get('/up/:order', function(req, res) {
-	if(Number(req.params.order) < 1){
-		req.flash('errmessage','This task can\'t go up anymore..')
-	}else{
-		var y = Number(req.params.order)
-		var x = y-1
-	    var b = tasks[y];
-	    tasks[y] = tasks[x];
-	    tasks[x] = b;
-	}
+    if (Number(req.params.order) < 1) {
+        req.flash('errmessage', 'This task can\'t go up anymore..')
+    } else {
+        var y = Number(req.params.order)
+        var x = y - 1
+        var b = tasks[y];
+        tasks[y] = tasks[x];
+        tasks[x] = b;
+    }
     res.redirect('/')
 })
 
 app.get('/down/:order', function(req, res) {
-	if(Number(req.params.order) >= tasks.length-1){
-		req.flash('errmessage','This task can\'t go down anymore..')
-	}else{
-		var y = Number(req.params.order)
-		var x = y+1
-	    var b = tasks[y];
-	    tasks[y] = tasks[x];
-	    tasks[x] = b;
-	}
+    if (Number(req.params.order) >= tasks.length - 1) {
+        req.flash('errmessage', 'This task can\'t go down anymore..')
+    } else {
+        var y = Number(req.params.order)
+        var x = y + 1
+        var b = tasks[y];
+        tasks[y] = tasks[x];
+        tasks[x] = b;
+    }
     res.redirect('/')
 })
 
 app.post('/reorder', function(req, res) {
 
-	console.log(req.body)
+    console.log(req.body)
 
-	var reagangedTasks = []
+    var reagangedTasks = []
 
 
-	req.body.changedOrder.forEach(function(id,i){
+    req.body.changedOrder.forEach(function(id, i) {
 
-		function findById(task) {
-		    return task.ID == id;
-		}
+        function findById(task) {
+            return task.ID == id;
+        }
 
-		
-		reagangedTasks.push(tasks.find(findById))
-	})
 
-	tasks = reagangedTasks
+        reagangedTasks.push(tasks.find(findById))
+    })
 
-	console.log(tasks)
+    tasks = reagangedTasks
 
-	// console.log(tasks.find(findById))
+    console.log(tasks)
 
-	res.send(JSON.stringify({status:'ok'}))
+    // console.log(tasks.find(findById))
+
+    res.send(JSON.stringify({ status: 'ok' }))
 })
 
 // launch ======================================================================

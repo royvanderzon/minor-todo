@@ -1,11 +1,17 @@
+var isOperaMini = (navigator.userAgent.indexOf('Opera Mini') > -1);
+// var isOperaMini = Object.prototype.toString.call(window.operamini) === "[object OperaMini]"
+// var isOperaMini = (navigator.userAgent.indexOf('Opera Mini') == -1);
+// var isOperaMini = (~navigator.userAgent.indexOf('Opera Mini'));
 //if queryselector is defined
 if (typeof document.querySelectorAll !== 'undefined') {
-    if(typeof document.querySelector('body').classList !== 'undefined'){
+    if (typeof document.querySelector('body').classList !== 'undefined') {
         //and draggable
-        if('draggable' in document.createElement('span')){
+        if ('draggable' in document.createElement('span')) {
             //add css dragging
-            document.querySelector('body').classList.add('drag')
-            drag_drop();   
+            if (!isOperaMini) {
+                document.querySelector('body').classList.add('drag')
+                drag_drop();
+            }
         }
     }
 }
