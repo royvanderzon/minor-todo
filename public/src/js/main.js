@@ -1,14 +1,12 @@
-console.log('Document ready')
-
 //if queryselector is defined
-if (typeof document.querySelectorAll === 'undefined' || typeof document.querySelector('body').classList === 'undefined') {
-    return;
-} else {
-    //and draggable
-    if('draggable' in document.createElement('span')){
-        //add css dragging
-        document.querySelector('body').classList.add('drag')
-        drag_drop();   
+if (typeof document.querySelectorAll !== 'undefined') {
+    if(typeof document.querySelector('body').classList !== 'undefined'){
+        //and draggable
+        if('draggable' in document.createElement('span')){
+            //add css dragging
+            document.querySelector('body').classList.add('drag')
+            drag_drop();   
+        }
     }
 }
 
@@ -17,7 +15,6 @@ if (typeof document.querySelectorAll === 'undefined' || typeof document.querySel
 // })
 
 function drag_drop() {
-
     var dragSrcEl = null;
 
     function handleDragStart(e) {
@@ -31,10 +28,10 @@ function drag_drop() {
         // e.dataTransfer.setData('text/html', this.innerHTML);
     }
 
-    var cols = document.querySelectorAll('#columns .column');
-    [].forEach.call(cols, function(col) {
-        col.addEventListener('dragstart', handleDragStart, false);
-    });
+    // var cols = document.querySelectorAll('#columns .column');
+    // [].forEach.call(cols, function(col) {
+    //     col.addEventListener('dragstart', handleDragStart, false);
+    // });
 
     function handleDragOver(e) {
         if (e.preventDefault) {
@@ -55,15 +52,16 @@ function drag_drop() {
         this.classList.remove('over'); // this / e.target is previous target element.
     }
 
-    var cols = document.querySelectorAll('#columns .column');
-    [].forEach.call(cols, function(col) {
-        col.addEventListener('dragstart', handleDragStart, false);
-        col.addEventListener('dragenter', handleDragEnter, false);
-        col.addEventListener('dragover', handleDragOver, false);
-        col.addEventListener('dragleave', handleDragLeave, false);
-    });
+    // var cols = document.querySelectorAll('#columns .column');
+    // [].forEach.call(cols, function(col) {
+    //     col.addEventListener('dragstart', handleDragStart, false);
+    //     col.addEventListener('dragenter', handleDragEnter, false);
+    //     col.addEventListener('dragover', handleDragOver, false);
+    //     col.addEventListener('dragleave', handleDragLeave, false);
+    // });
 
     function handleDrop(e) {
+
         // this/e.target is current target element.
 
         if (e.stopPropagation) {
