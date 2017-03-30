@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="/dist/css/styles.min.css">
+</head>
+<body>
+
+	<% if(message.length > 0){ %>
+	<span class="message"><%= message %></span>
+	<% } %>
+	<% if(errmessage.length > 0){ %>
+	<span class="message err"><%= errmessage %></span>
+	<% } %>
+
+	<h1>MY SIMPLE TODO</h1>
+
+	<div class="container">
+		<div class="input-container">
+			<form action="/add" method="post" class="todo-form">
+				<input type="text" class="todo-input" required name="text" placeholder="Add something.." autofocus>
+				<button type="submit">ADD</button>
+			</form>
+		</div>
+		<div class="todo-inner">
+			<% if (tasks.length < 1){ %>
+				<span class="no-tasks">Sorry, there are no tasks added yet!</span>
+			<% } else { %>
+			<ul id="columns">
+				<% tasks.forEach(function(el,i){ %>
+				<li class="column" draggable="true">
+					<p class="column-content">
+						<strong><%= el.ID %> </strong><%= el.text %>
+					</p>
+					<div class="order-control" data-id="<%= el.ID %>">
+						<!-- <em><% if(i > 0){ %><a href="/up/<%= i %>">UP</a><% } %><% if(i > 0 && i < tasks.length - 1){ %> | <% } %><% if(i < tasks.length - 1){ %><a href="/down/<%= i %>">DOWN</a><% } %></em> -->
+						<em><a href="/up/<%= i %>">UP</a><span class="link-divider"> | </span><a href="/down/<%= i %>">DOWN</a></em>
+					</div>
+				</li>
+				<% }) %>
+			</ul>
+			<% } %>
+			
+		</div>
+
+	</div>
+
+
+	<script src="/dist/js/wiq.js"></script>
+	<script src="/dist/js/bundle.min.js"></script>
+
+</body>
+</html>
